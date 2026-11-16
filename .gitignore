@@ -1,0 +1,11 @@
+# Simulation binaries and dump traces
+*.vvp
+*.vcd
+
+# Temporary graphviz descriptions
+*.dot
+
+# Editor and OS artifacts
+*.swp
+*~
+.DS_Store

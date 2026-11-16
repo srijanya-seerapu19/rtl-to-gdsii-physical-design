@@ -1,0 +1,20 @@
+# 1. Read your hardware design file
+read_verilog ../rtl/decoder_2to4.v
+
+# 2. Synthesize generic logic for top module
+synth -top decoder_2to4
+
+# 3. Technology mapping to SkyWater 130nm cells using ABC
+abc -liberty /home/srijanya/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 4. Clean up unused wires
+clean
+
+# 5. Print silicon area and cell statistics
+stat -liberty /home/srijanya/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 6. Save the synthesized gate-level netlist
+write_verilog -noattr decoder_2to4_synth.v
+
+# 7. Generate physical schematic
+show -format dot -prefix decoder_2to4_sky130
