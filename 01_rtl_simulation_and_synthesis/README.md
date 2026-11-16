@@ -45,6 +45,16 @@ vvp decoder_sim.vvp
 gtkwave decoder_2to4.vcd &
 ```
 
+### Behavioral Simulation Waveform:
+![GTKWave Behavioral Simulation](docs/images/waveform.png)
+
+#### Waveform Analysis:
+* **0 to 20 ns (`en = 0`)**: The circuit is disabled. All output lines (`y0`, `y1`, `y2`, `y3`) remain at logic `0` regardless of input states.
+* **20 to 30 ns (`en = 1`, `a = 0`, `b = 0`)**: Address `00` selected $\rightarrow$ `y0` transitions to `1`.
+* **30 to 40 ns (`en = 1`, `a = 0`, `b = 1`)**: Address `01` selected $\rightarrow$ `y1` transitions to `1`.
+* **40 to 50 ns (`en = 1`, `a = 1`, `b = 0`)**: Address `10` selected $\rightarrow$ `y2` transitions to `1`.
+* **50 to 60 ns (`en = 1`, `a = 1`, `b = 1`)**: Address `11` selected $\rightarrow$ `y3` transitions to `1`.
+
 ---
 
 ## ⚙️ Logic Synthesis & Silicon Technology Mapping
