@@ -1,0 +1,29 @@
+# 1. Read hardware design
+read_verilog ../rtl/dff_async_reset.v
+
+# 2. Check hierarchy
+hierarchy -check -top dff_async_reset
+
+# 3. High-level elaboration of processes and registers
+proc; opt; fsm; opt; memory; opt
+
+# 4. Techmap generic flip-flop primitives
+techmap
+
+# 5. Technology mapping of Sequential Flip-Flops to SkyWater 130nm
+dfflibmap -liberty /home/srijanya/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 6. Technology mapping of combinational logic via ABC
+abc -liberty /home/srijanya/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 7. Clean up unused wires
+clean
+
+# 8. Print silicon cell statistics and die area
+stat -liberty /home/srijanya/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+
+# 9. Write out synthesized gate-level netlist
+write_verilog -noattr dff_async_reset_synth.v
+
+# 10. Generate schematic diagram file
+show -format dot -prefix dff_sky130

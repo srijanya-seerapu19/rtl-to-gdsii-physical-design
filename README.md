@@ -75,8 +75,9 @@ The digital ASIC implementation flow bridges the gap between functional abstract
 - [x] **[Stage 01: RTL Simulation & Logic Synthesis](./01_rtl_simulation_and_synthesis/)**
   - *Demonstrated Design*: 2-to-4 Line Binary Decoder with Active-High Enable
   - *Key Deliverables*: Verilog behavioral modeling, GTKWave waveform verification, technology mapping to SkyWater 130nm standard cells, silicon area characterization ($31.28\ \mu\text{m}^2$), and Gate-Level Simulation (GLS).
-- [ ] **Stage 02: Static Timing Analysis & Floorplanning**
-  - Constraints definition (`.sdc`), timing slack verification via OpenSTA, die/core area sizing, aspect ratio, IO pin placement, and $V_{DD}$ / $V_{SS}$ power ring/stripe distribution.
+- [x] **[Stage 02: Sequential Logic & Memory Elements](./02_sequential_logic_dff/)**
+  - *Demonstrated Design*: Positive Edge-Triggered D Flip-Flop with Active-Low Asynchronous Reset
+  - *Key Deliverables*: Clocked sequential modeling, asynchronous reset verification in GTKWave, Yosys `dfflibmap` technology mapping to `sky130_fd_sc_hd__dfrtp_1`, silicon area calculation ($25.02\ \mu\text{m}^2$), and Gate-Level Simulation (GLS).
 - [ ] **Stage 03: Standard Cell Placement & Clock Tree Synthesis (CTS)**
   - Global analytical placement, cell legalization, clock buffer insertion, skew minimization, and hold-time slack closure.
 - [ ] **Stage 04: Interconnect Routing, Physical Verification & GDSII Stream-Out**
